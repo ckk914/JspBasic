@@ -9,11 +9,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * 만약에 클라이언트가 /chap02/dancer/register URL로
+ * 만약에 클라이언트가 /chap02/dancer/register
+ * URL로
  * 요청을 보내면 댄서를 등록할 수 있는 양식 html을 응답해주세요
  */
 //http://localhost:8181/chap02/dancer/register
 // localhost = 127.0.0.1
+// extends HttpServlet 잘만들어진 서블릿 상속 받아서 사용 ⭐️
 @WebServlet("/chap02/dancer/register")
 public class DancerRegisterServlet extends HttpServlet {
     @Override
@@ -41,7 +43,7 @@ public class DancerRegisterServlet extends HttpServlet {
         w.write("</body>\n");
         w.write("</html>");
         //⭐️제출 버튼 누르면 form action으로 간다~!
-        //form action get 으로 하면 다음과 같이 나온다~! ㄱ
+        //form action의 method를  get 으로 하면 다음과 같이 나온다~! ㄱ
         //http://localhost:8181/hello?name=111&crewName=222&danceLevel=AMATEUR&genres=STREET
 
 

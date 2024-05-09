@@ -39,13 +39,13 @@ public class BasicServlet extends HttpServlet {
         //요청 파라미터 정보
         String queryString = req.getQueryString();
         //요청 헤더 정보 읽기
-        //request header  개발자도구 네트워크에 있는 속성들 다 가져올 수 있다⭐️
+        //request header  개발자도구 ->네트워크에 있는 속성들 다 가져올 수 있다⭐️
         String header = req.getHeader("cache-control");
         //http://127.0.0.1:8181/login?name=kim&age=30&grade=A
 
         //method = GET
         //requestURI = /login
-        //queryString = name=kim&age+30&grade=A
+        //queryString = name=kim&age=30&grade=A
 
         System.out.println("method = " + method);
         System.out.println("requestURI = " + requestURI);
@@ -61,7 +61,7 @@ public class BasicServlet extends HttpServlet {
         System.out.println("age = " + age);   // 30
         System.out.println("grade = " + grade); //A
 
-        //서버의 응답 처리
+        //서버의 응답 처리⭐️
         // 요리를 해야한다
         // ㄴ 비지니스 로직 : 나이를 기반으로 출생년도를 계산
         // 학점이 F면 과락 처리, 아니면 통과 처리
@@ -69,7 +69,7 @@ public class BasicServlet extends HttpServlet {
         try {
             birthYear= LocalDate.now().getYear() - Integer.parseInt(age) + 1;
         } catch (NumberFormatException e) {
-            resp.setStatus(400);
+            resp.setStatus(400);  //400 알람 표시
             return;
         }
         String message;
@@ -84,7 +84,7 @@ public class BasicServlet extends HttpServlet {
 
 
         //응답 메시지 생성 (http response message)
-        resp.setStatus(200);
+        resp.setStatus(200); //200 알람 (정상)
         resp.setContentType("text/html");
         resp.setCharacterEncoding("utf-8");
 

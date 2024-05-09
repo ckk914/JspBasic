@@ -44,6 +44,7 @@ public class DancerSaveProcessServlet extends HttpServlet {
         dancer.setDanceLevel(Dancer.DanceLevel.valueOf(danceLevel));
 
         List<Dancer.Genre> genreList = new ArrayList<>();
+
         for(String genre:genres){
             genreList.add(Dancer.Genre.valueOf(genre));
         }

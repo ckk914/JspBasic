@@ -60,11 +60,7 @@ public class DancerJdbcRepo {
             return true;
 
             //7. 데이터베이스 연결 해제
-
-
-
-
-
+            //ㄴ try로 묶여서 나가면 종료됨
         } catch (Exception e) {
             e.printStackTrace();
             return  false;

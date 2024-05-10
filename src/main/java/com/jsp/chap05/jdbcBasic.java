@@ -47,10 +47,6 @@ public class jdbcBasic {
 
             //7. 데이터베이스 연결 해제
 
-
-
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -90,16 +86,13 @@ public class jdbcBasic {
 
             //7. 데이터베이스 연결 해제
 
-
-
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
+    //삭제 기능
     public void delete(int id){
 
         try(Connection conn = DriverManager.getConnection(url, username, password);) {
@@ -128,18 +121,14 @@ public class jdbcBasic {
             pstmt.executeUpdate();
 
             //7. 데이터베이스 연결 해제
-
-
-
-
-
+            //ㄴ try 끝나면 종료됨
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
-
+    //SELECT 기능
     public List<Person> findAll(){
         try(Connection conn = DriverManager.getConnection(url,username,password)){
 

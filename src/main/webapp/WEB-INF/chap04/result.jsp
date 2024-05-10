@@ -9,11 +9,13 @@
 <body>
     
     <h1>댄서 등록 결과 페이지 입니다.</h1>
-    <%
+
+    <%--
     String name = (String)request.getAttribute("name");
     String crew = (String)request.getAttribute("crew");
-    %>
-      <h2><%= name %>님(소속: <%= crew %>)이 정상 등록되었습니다~</h2>
+    --%>
+      <h2>${d.name}님(소속: ${d.crewName} )이 정상 등록되었습니다~</h2>
+      <h2>댄스 수준 : ${d.danceLevel}</h2>
 
     
     <a href="/chap04/dancer/form">새로운 댄서 등록하러 가기</a><br>

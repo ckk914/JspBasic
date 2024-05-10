@@ -1,6 +1,7 @@
 package com.jsp.chap04;
 
 import com.jsp.entity.Dancer;
+import com.jsp.repository.DancerJdbcRepo;
 import com.jsp.repository.DancerMemoryRepo;
 
 import javax.servlet.RequestDispatcher;
@@ -17,7 +18,7 @@ import java.util.List;
 @WebServlet("/chap04/show-list")
 public class ShowDancerListServlet extends HttpServlet {
     //싱글톤은 new로 생성 못함~!
-    private DancerMemoryRepo repo =DancerMemoryRepo.getInstance();
+    private DancerJdbcRepo repo =DancerJdbcRepo.getInstance();
     //service 없으면 405 에러
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

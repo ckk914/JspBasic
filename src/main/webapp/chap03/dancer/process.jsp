@@ -4,7 +4,7 @@
 
 
 <%!
-//!붙이면 필드 선언 
+//!붙이면 필드 선언 ⭐️
 //필드 선언
 public static List<Dancer> dancerList = new ArrayList<>();
 %>

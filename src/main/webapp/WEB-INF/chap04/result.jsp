@@ -10,7 +10,7 @@
     
     <h1>댄서 등록 결과 페이지 입니다.</h1>
 
-    <%--
+    <%-- 이건 이제 필요 없음
     String name = (String)request.getAttribute("name");
     String crew = (String)request.getAttribute("crew");
     --%>

@@ -99,6 +99,7 @@ public class DancerJdbcRepo {
 
 
                 Dancer dancer = new Dancer();
+                dancer.setId(id);
                 dancer.setName(name);
                 dancer.setCrewName(crewname);
                 dancer.setDanceLevel(Dancer.DanceLevel.valueOf(dancelevel));
@@ -114,4 +115,24 @@ public class DancerJdbcRepo {
             return null;
         }
     }
+
+    public void delete(String id) {
+
+        try (Connection conn = DriverManager.getConnection(url, username, password)) {
+
+            Class.forName(driverClassName);
+
+            String sql = "DELETE FROM tbl_dancer WHERE id = ?";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, id);
+
+            pstmt.executeUpdate();
+
+
+        } catch (Exception e) {
+
+        }
+    }
+
 }

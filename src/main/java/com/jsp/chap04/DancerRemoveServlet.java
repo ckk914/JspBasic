@@ -2,6 +2,7 @@ package com.jsp.chap04;
 
 import com.jsp.entity.Dancer;
 import com.jsp.repository.DancerJdbcRepo;
+import com.jsp.repository.DancerRepository;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +15,14 @@ import java.io.IOException;
 @WebServlet("/chap04/remove")
 public class DancerRemoveServlet extends HttpServlet {
 
-    private final DancerJdbcRepo repo = DancerJdbcRepo.getInstance();
+    public DancerRemoveServlet(DancerRepository repo) {
+        this.repo = repo;
+    }
+
+    //    private final DancerJdbcRepo repo = DancerJdbcRepo.getInstance();
+    //                              Jdbc or Memory 만 바꿔서 사용~!⭐️
+    private DancerRepository repo;
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("삭제 요청 서버에 들어옴~!");

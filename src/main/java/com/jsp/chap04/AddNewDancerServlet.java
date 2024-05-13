@@ -3,6 +3,7 @@ package com.jsp.chap04;
 import com.jsp.entity.Dancer;
 import com.jsp.repository.DancerJdbcRepo;
 import com.jsp.repository.DancerMemoryRepo;
+import com.jsp.repository.DancerRepository;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,7 +21,13 @@ import java.util.List;
 @WebServlet("/chap04/new-dancer")
 public class AddNewDancerServlet extends HttpServlet {
 
-    private DancerJdbcRepo repo = DancerJdbcRepo.getInstance();
+    public AddNewDancerServlet(DancerRepository repo) {
+        this.repo = repo;
+    }
+
+    //    private DancerJdbcRepo repo = DancerJdbcRepo.getInstance();
+//  private DancerRepository repo = DancerJdbcRepo.getInstance();
+  private DancerRepository repo;
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

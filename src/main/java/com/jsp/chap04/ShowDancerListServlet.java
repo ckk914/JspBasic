@@ -3,6 +3,7 @@ package com.jsp.chap04;
 import com.jsp.entity.Dancer;
 import com.jsp.repository.DancerJdbcRepo;
 import com.jsp.repository.DancerMemoryRepo;
+import com.jsp.repository.DancerRepository;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,8 +18,13 @@ import java.util.List;
 //       적당한 html을 찾아서 forwarding
 @WebServlet("/chap04/show-list")
 public class ShowDancerListServlet extends HttpServlet {
+    public ShowDancerListServlet(DancerRepository repo) {
+        this.repo = repo;
+    }
+
     //싱글톤은 new로 생성 못함~!
-    private DancerJdbcRepo repo =DancerJdbcRepo.getInstance();
+//    private DancerJdbcRepo repo =DancerJdbcRepo.getInstance();
+    private DancerRepository repo;
     //service 없으면 405 에러
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

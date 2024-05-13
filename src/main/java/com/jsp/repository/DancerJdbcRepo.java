@@ -11,7 +11,7 @@ import java.util.List;
 
 // 역할 : 실제 데이터 베이스에 댄서들을 CRUD
 // MODEL 역할
-public class DancerJdbcRepo {
+public class DancerJdbcRepo implements DancerRepository{
     //싱글톤 구현하기 위한 생성
     private static DancerJdbcRepo repo = new DancerJdbcRepo();
     //싱글톤 구현 (객체 생성을 하나로 막기 위함)

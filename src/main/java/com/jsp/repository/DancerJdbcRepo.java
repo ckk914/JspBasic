@@ -1,6 +1,5 @@
 package com.jsp.repository;
 
-import com.jsp.chap05.Person;
 import com.jsp.entity.Dancer;
 
 import java.sql.Connection;
@@ -9,8 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.jsp.Chap02.DancerSaveProcessServlet.dancerList;
 
 // 역할 : 실제 데이터 베이스에 댄서들을 CRUD
 // MODEL 역할
@@ -88,7 +85,7 @@ public class DancerJdbcRepo {
             // next 하면 1행 , 두번하면 2행
 //            rs.next(); //표의 행을 지목하는 커서
 //            rs.next();  //데이터가 있으면 true 없으면 false
-            List<Person> people = new ArrayList<>();
+            List<Dancer> people = new ArrayList<>();
             //데이터 가져오기
             while (rs.next()){
                 //커서가 가리키는 행의 데이터를 하나씩 추출⭐️
@@ -104,10 +101,10 @@ public class DancerJdbcRepo {
                 dancer.setCrewName(crewname);
                 dancer.setDanceLevel(Dancer.DanceLevel.valueOf(dancelevel));
 
-                dancerList.add(dancer);
+                people.add(dancer);
 //                System.out.println("person = " + person);
             }
-            return dancerList;
+            return people;
 
         }
         catch(Exception e){

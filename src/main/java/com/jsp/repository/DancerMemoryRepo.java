@@ -35,9 +35,10 @@ public class DancerMemoryRepo implements DancerRepository{
         return dancerList;
     }
 
-    public void delete(int id) {
+
+    public void delete(String id) {
         List<Dancer> dancers = dancerList.stream()
-                .filter(dancer -> dancer.getId() == id)
+                .filter(dancer -> dancer.getId() == Integer.parseInt(id))
                 .collect(Collectors.toList());
 
         if (!dancers.isEmpty()) {
